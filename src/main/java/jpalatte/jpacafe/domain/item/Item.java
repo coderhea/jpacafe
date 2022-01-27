@@ -1,5 +1,6 @@
 package jpalatte.jpacafe.domain.item;
 
+import jpalatte.jpacafe.exception.NotEnoughStockException;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -19,4 +20,16 @@ public abstract class Item {
     private int price;
     private int stockQuantity;
 
+    /**
+     * 재고 수량 그 객체가 관리
+     */
+    public void addStock(int quantity) {
+        this.stockQuantity += quantity;
+    }
+    public void removeStock(int quantity) {
+        if (this.stockQuantity < quantity) {
+            throw new NotEnoughStockException("need more stock!");
+        }
+        this.stockQuantity -= quantity;
+    }
 }
