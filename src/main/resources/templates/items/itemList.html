@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: header" />
+<body>
+    <div class="container">
+        <div th:replace="fragments/bodyHeader :: bodyHeader"/>
+        <div>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>상품명</th>
+                        <th>가격</th>
+                        <th>재고 수량</th>
+                        <th>사이즈업</th>
+                        <th>토핑</th>
+                        <!--<th>소스</th>-->
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="item : ${items}"> <!-- thymeleaf 기능, model 인자 html 그대로, debug모드 ""오류-->
+                        <td th:text="${item.id}"></td>
+                        <td th:text="${item.name}"></td>
+                        <td th:text="${item.price}"></td>
+                        <td th:text="${item.stockQuantity}"></td>
+                        <td th:text="${item.sizeUp}"></td>
+                        <td th:text="${item.topping}"></td>
+                        <!--<td th:text="${item?.sauce}"></td>-->
+                        <td>
+                            <a href="Id" th:href="@{/items/{id}/edit (id=${item.id})}" class = "btn btn-primary" role="button">수정</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div th:replace="fragments/footer :: footer"/>
+    </div>
+</body>
+</html>

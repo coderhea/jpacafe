@@ -31,4 +31,10 @@ public class ItemController {
         itemService.saveItem(coffee);
         return "redirect:/";
     }
+
+    @RequestMapping(value = "/items", method = RequestMethod.GET)
+    public String list(Model model) {
+        model.addAttribute("items", itemService.findItems());
+        return "/items/itemList";
+    }
 }
