@@ -26,6 +26,7 @@ public abstract class Item {
     public void addStock(int quantity) {
         this.stockQuantity += quantity;
     }
+
     public void removeStock(int quantity) {
         if (this.stockQuantity < quantity) {
             throw new NotEnoughStockException("need more stock!");

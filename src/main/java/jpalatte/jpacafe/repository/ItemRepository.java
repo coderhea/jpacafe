@@ -11,7 +11,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ItemRepository {
 
-    private EntityManager em;
+    private final EntityManager em; //em final + requiredArgs
 
     public void save(Item item) {
         if (item.getId() == null) {
@@ -25,7 +25,7 @@ public class ItemRepository {
         return em.find(Item.class, id);
     }
 
-    public List<Item> findAllItems() {
+    public List<Item> findAll() {
         return em.createQuery("select i from Item i", Item.class)
                 .getResultList();
     }

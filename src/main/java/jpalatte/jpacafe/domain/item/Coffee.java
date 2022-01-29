@@ -9,7 +9,7 @@ import javax.persistence.Entity;
 @Entity
 @DiscriminatorValue("C")
 @Getter @Setter
-public class Coffee extends Item {
+public class Coffee extends Item { //extends then Id, price, stockQuantity
     private boolean sizeUp;
-    private String name;
+    private String topping;
 }
