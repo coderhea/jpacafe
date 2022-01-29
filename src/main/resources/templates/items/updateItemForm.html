@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: header" />
+<body>
+<div class="container">
+    <div th:replace="fragments/bodyHeader :: bodyHeader"/>
+    <form th:object="${form}" method="post">
+        <!-- Id -->
+        <input type="hidden" th:field="*{id}" />
+
+        <div class="form-group">
+            <label th:for="name">상품명</label> <!-- th:object ${}의 th:field *{}-->
+            <input type="text" th:field="*{name}" class="form-control" placeholder="상품 이름을 입력하세요">
+        </div>
+        <div class="form-group">
+            <label th:for="price">가격</label>
+            <input type="number" th:field="*{price}" class="form-control" placeholder="가격을 입력하세요">
+        </div>
+        <div class="form-group">
+            <label th:for="stockQuantity">재고수량</label>
+            <input type="number" th:field="*{stockQuantity}" class="form-control" placeholder="재고 수량을 입력하세요">
+        </div>
+        <div class="form-group">
+            <label th:for="sizeUp">사이즈업</label>
+            <input type="checkbox" th:field="*{sizeUp}" class="form-control"> <!-- checkBox o boolean x-->
+        </div>
+        <div class="form-group">
+            <label th:for="topping">토핑</label>
+            <input type="text" th:field="*{topping}" class="form-control" placeholder="토핑을 입력하세요">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    <br/>
+    <div th:replace="fragments/footer :: footer"/>
+</div> <!-- /container -->
+</body>
+</html>
