@@ -1,20 +1,21 @@
 package jpalatte.jpacafe.domain;
 
 import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.Embeddable;
 
 @Embeddable
 @Getter
 public class Team {
-    private String floor;
     private String teamName;
+    private String floor;
 
-    protected Team() {} //자바 기본 생성자 x public
-
-    public Team(String floor, String teamName) {
-        this.floor = floor;
-        this.teamName = teamName;
+    protected Team() {
     }
 
+    public Team(String teamName, String floor) {
+        this.teamName = teamName;
+        this.floor = floor;
+    }
 }

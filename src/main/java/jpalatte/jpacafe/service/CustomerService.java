@@ -3,7 +3,6 @@ package jpalatte.jpacafe.service;
 import jpalatte.jpacafe.domain.Customer;
 import jpalatte.jpacafe.repository.CustomerRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -57,4 +56,15 @@ public class CustomerService {
     public Customer findOne(Long customerId) {
         return customerRepository.findOne(customerId);
     }
+
+    /**
+     * 영속성 컨텍스트가 자동 변경
+     */
+    @Transactional
+    public void updateCustomer(Long customerId, String name) {
+        Customer customer = customerRepository.findOne(customerId);
+        customer.setName(name);
+        }
+
+
 }

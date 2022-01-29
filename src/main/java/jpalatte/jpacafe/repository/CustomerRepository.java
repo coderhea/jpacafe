@@ -2,6 +2,7 @@ package jpalatte.jpacafe.repository;
 
 import jpalatte.jpacafe.domain.Customer;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -32,4 +33,5 @@ public class CustomerRepository {
                 .setParameter("name", name) //:XXX, input parameter
                 .getResultList();
     }
+
 }

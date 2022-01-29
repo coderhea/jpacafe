@@ -1,4 +1,4 @@
-package jpalatte.jpacafe;
+package jpalatte.jpacafe.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
