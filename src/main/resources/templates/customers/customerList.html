@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: header" />
+<body>
+    <div class="container">
+        <div th:replace="fragments/bodyHeader :: bodyHeader"/>
+        <div>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th>이름</th>
+                        <th>소속 팀</th>
+                        <th>근무 층</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="customer : ${customers}"> <!-- thymeleaf 기능, model 인자 html 그대로, debug모드 ""오류-->
+                        <td th:text="${customer.id}"></td>
+                        <td th:text="${customer.name}"></td>
+                        <td th:text="${customer.team?.teamName}"></td> <!-- thymeleaf if문 없이 ? 즉 null이면 하위 find x-->
+                        <td th:text="${customer.team?.floor}"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div th:replace="fragments/footer :: footer"/>
+    </div>
+</body>
+</html>

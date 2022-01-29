@@ -34,5 +34,9 @@ public class CustomerController {
             return "redirect:/";
         }
 
-
+        @RequestMapping(value = "/customers", method = RequestMethod.GET) //만약 조회 시 Entity 중 일부만이면 역시 Form이나 DTO, 우선 여기는 Entity 자체
+        public String list(Model model){
+            model.addAttribute("customers", customerService.findCustomers());
+            return "customers/customerList";
+        }
         }
