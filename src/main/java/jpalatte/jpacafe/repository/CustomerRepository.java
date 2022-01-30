@@ -1,18 +1,17 @@
 package jpalatte.jpacafe.repository;
 
 import jpalatte.jpacafe.domain.Customer;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import java.util.List;
 
 @Repository //@Repository(Spring Component scan)
+@RequiredArgsConstructor
 public class CustomerRepository {
 
-    @PersistenceContext
-    private EntityManager em; //Spring에서 알아서 해당 EntityManager 주입 : spring-data-jpa
+    private final EntityManager em; //Spring에서 알아서 해당 EntityManager 주입 : spring-data-jpa
 
     public Long save(Customer customer) {
         em.persist(customer);

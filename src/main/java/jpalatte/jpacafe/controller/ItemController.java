@@ -57,17 +57,9 @@ public class ItemController {
     }
 
     @RequestMapping(value = "/items/{itemId}/edit", method = RequestMethod.POST)
-    public String updateItem(@PathVariable String itemId, @ModelAttribute("form") CoffeeForm form) {  //updateItemForm ${form}
+    public String updateItem(@PathVariable Long itemId, @ModelAttribute("form") CoffeeForm form) {  //updateItemForm ${form}
 
-        Coffee coffee = new Coffee();
-        coffee.setId(form.getId());
-        coffee.setName(form.getName());
-        coffee.setPrice(form.getPrice());
-        coffee.setStockQuantity(form.getStockQuantity());
-        coffee.setSizeUp(form.isSizeUp());
-        coffee.setTopping(form.getTopping());
-
-        itemService.saveItem(coffee);
+        itemService.updateItem(itemId, form.getName(), form.getPrice(), form.getStockQuantity());
         return "redirect:/items";
     }
 
